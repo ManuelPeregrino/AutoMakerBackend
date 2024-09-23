@@ -20,6 +20,6 @@ def test_move_printer_x_axis():
     assert response.status_code == 200  # Assuming the request is supposed to succeed
 
 def test_move_printer_xyz_axis():
-    response = client.post("/printer/move", json={"x": 10.0, "y": 5.0, "z": 3.0})
+    response = client.post("/printer/move", json={"x": 10.0, "y": 5.0, "z": 3.0, "e": 0.0, "speed":500})
     assert response.status_code == 200
     assert "Sent command: G0 X10.0 Y5.0 Z3.0" in response.json()["message"]
