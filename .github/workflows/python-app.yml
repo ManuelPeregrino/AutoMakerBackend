@@ -36,4 +36,4 @@ jobs:
       - name: Run tests
         run: |
           cd python
-          pytest  # Corrected command to run tests
+          python -m pytest  # Corrected command again to run tests
