@@ -1,9 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
 # .github/workflows/ci.yml
 
-name: FastAPI CI
+name: Python FastAPI CI
 
 on:
   push:
@@ -26,15 +23,18 @@ jobs:
       - name: Set up Python 3.9
         uses: actions/setup-python@v2
         with:
-          python-version: 3.9
+          python-version: '3.9'
 
       # Step 3: Install dependencies
       - name: Install dependencies
         run: |
+          cd python
           python -m pip install --upgrade pip
-          pip install fastapi pytest httpx uvicorn
+          pip install -r requirements.txt  # Assumes you have a requirements.txt file
 
       # Step 4: Run the tests
       - name: Run tests
         run: |
-          pytest
+          cd python
+          pytest tests/
+
