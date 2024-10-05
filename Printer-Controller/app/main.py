@@ -30,7 +30,7 @@ HEADERS = {
     "X-Api-Key": OCTOPRINT_API_KEY
 }
 
-# Model for temperature control input
+# Model for temperature control input|
 class TemperatureControl(BaseModel):
     hotend_temp: float = None  # Hotend target temperature (optional)
     bed_temp: float = None     # Bed target temperature (optional)
